@@ -1,21 +1,53 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import ProductCard from '../components/ProductCard.astro';
 ---
 
 <Layout
-	title="Store"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
+  title="Store"
+  description="Browse our selection of products below!"
+  pubDate={new Date()}
+  heroImage="/store-hero.jpg"
 >
-    <p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
-
+  <div class="product-grid">
+    <ProductCard
+      image="https://images.unsplash.com/photo-1513708927688-890fe8c7b8c3?auto=format&fit=crop&w=400&q=80"
+      name="Astro Mug"
+      description="A stylish mug for your favorite beverage."
+      price="$12.99"
+    />
+    <ProductCard
+      image="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+      name="Space T-shirt"
+      description="Comfortable cotton t-shirt with a cosmic design."
+      price="$24.99"
+    />
+    <ProductCard
+      image="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+      name="Rocket Sticker Pack"
+      description="Decorate your laptop with these fun rocket stickers."
+      price="$4.99"
+    />
+    <ProductCard
+      image="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+      name="Galaxy Notebook"
+      description="A notebook for your interstellar ideas."
+      price="$9.99"
+    />
+  </div>
 </Layout>
+
+<style>
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+</style>
